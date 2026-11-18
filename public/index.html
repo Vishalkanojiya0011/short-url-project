@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta
+      name="description"
+      content="Create clean, memorable short links and keep track of every click."
+    />
+    <title>snip — Make every link count</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="snip home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M12.1 19.9 9.7 22.3a5 5 0 0 1-7.1-7.1l5-5a5 5 0 0 1 7.1 0" />
+              <path d="m19.9 12.1 2.4-2.4a5 5 0 0 1 7.1 7.1l-5 5a5 5 0 0 1-7.1 0" />
+              <path d="m11 21 10-10" />
+            </svg>
+          </span>
+          <span>snip<span class="brand-period">.</span></span>
+        </a>
+        <div class="topbar-right">
+          <a class="nav-link" href="#links">My links</a>
+          <div class="connection"><span class="status-dot"></span><span id="connection-text">Connecting</span></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="sparkle">✳</span> YOUR LINKS, ONLY BETTER</div>
+            <h1>Make every link<br />count<span class="heading-dot">.</span></h1>
+            <p class="hero-description">
+              Shorten the long way around. Create shareable links in seconds and see
+              every click add up.
+            </p>
+            <div class="hero-points">
+              <span><span class="check">✓</span> Free, forever</span>
+              <span><span class="check">✓</span> Real-time click stats</span>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-spark spark-one">✳</div>
+            <div class="art-spark spark-two">✦</div>
+            <div class="art-card card-back"><span></span><i></i><i></i><i></i></div>
+            <div class="art-card card-front">
+              <span class="art-link-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7" /></svg>
+              </span>
+              <span class="art-url">snip.ly/<b>go-further</b></span>
+              <span class="art-copy">
+                <svg viewBox="0 0 20 20" fill="none"><rect x="7" y="7" width="10" height="10" rx="2" /><path d="M13 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /></svg>
+              </span>
+            </div>
+            <div class="art-clicks"><span class="click-bars">▂ ▄ ▆ ▅ ▇</span><span><b>+28%</b><small>clicks this week</small></span></div>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Create a short link">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">GET STARTED</span>
+              <h2>Shorten a link</h2>
+            </div>
+            <span class="step-badge"><span>01</span> / 01</span>
+          </div>
+          <form id="shorten-form" class="shorten-form">
+            <label class="field-label" for="destination">Paste your long URL</label>
+            <div class="url-input-wrap">
+              <svg class="input-link-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7" />
+              </svg>
+              <input
+                id="destination"
+                name="url"
+                type="url"
+                placeholder="https://your-very-long-link.com/goes-here"
+                autocomplete="url"
+                required
+              />
+              <button class="paste-button" id="paste-button" type="button" aria-label="Paste from clipboard">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="6" y="5" width="11" height="12" rx="2" /><path d="M13 5V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h1" /></svg>
+                Paste
+              </button>
+            </div>
+            <div class="form-bottom">
+              <label class="custom-label" for="custom-code">
+                <span class="custom-icon">↗</span>
+                <span id="alias-prefix">localhost:4000/</span>
+                <input id="custom-code" name="customCode" type="text" maxlength="32" placeholder="custom-alias" autocomplete="off" />
+              </label>
+              <button class="shorten-button" id="submit-button" type="submit">
+                <span>Shorten link</span>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
+              </button>
+            </div>
+            <p class="form-note">Short codes use the website name + a short unique suffix · Custom aliases are optional</p>
+            <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+          </form>
+
+          <section id="result-panel" class="result-panel" aria-live="polite" hidden>
+            <div class="result-check" aria-hidden="true">✓</div>
+            <div class="result-content">
+              <span class="result-label">YOUR SHORT LINK IS READY</span>
+              <a id="result-link" class="result-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+              <span id="result-destination" class="result-destination"></span>
+            </div>
+            <button id="copy-result" class="copy-result" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" /><path d="M13 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /></svg>
+              <span>Copy link</span>
+            </button>
+          </section>
+        </section>
+
+        <section id="links" class="links-section">
+          <div class="links-heading">
+            <div>
+              <span class="section-kicker">YOUR DASHBOARD</span>
+              <h2>Recent links <span id="link-count" class="count-badge">0</span></h2>
+            </div>
+            <button id="refresh-links" class="refresh-button" type="button" title="Refresh click counts">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16.5 8A6.5 6.5 0 0 0 5 5L3.5 6.5M3.5 6.5V3.5m0 3h3m-3 5.5a6.5 6.5 0 0 0 11.5 3l1.5-1.5m0 0v3m0-3h-3" /></svg>
+              Refresh stats
+            </button>
+          </div>
+          <div id="links-list" class="links-list"></div>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M19 29 15.5 32.5a7 7 0 0 1-10-10l7-7a7 7 0 0 1 10 0M29 19l3.5-3.5a7 7 0 0 1 10 10l-7 7a7 7 0 0 1-10 0M17 31l14-14" /></svg>
+            </div>
+            <h3>Your next great link starts here</h3>
+            <p>Shorten a URL above and it’ll show up here.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="brand footer-brand" href="/" aria-label="snip home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M12.1 19.9 9.7 22.3a5 5 0 0 1-7.1-7.1l5-5a5 5 0 0 1 7.1 0M19.9 12.1l2.4-2.4a5 5 0 0 1 7.1 7.1l-5 5a5 5 0 0 1-7.1 0M11 21l10-10" /></svg></span>
+          <span>snip<span class="brand-period">.</span></span>
+        </a>
+        <span>Short links. Long stories.</span>
+        <a class="footer-top" href="#">Back to top ↑</a>
+      </footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
